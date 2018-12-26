@@ -9,12 +9,47 @@ Polls is a simple API allowing consumers to view polls and vote in them.
 
 ### List All Questions [GET]
 
-+ Response 200 (application/json)
++ Request V1
+    + Headers
+        
+            Accept: application/json;version=1
+        
++ Response 200 (application/json;version=1)
 
         [
             {
                 "question": "Favourite programming language?",
                 "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 2048
+                    }, {
+                        "choice": "Python",
+                        "votes": 1024
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 512
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 256
+                    }
+                ]
+            }
+        ]
+        
++ Request V2
+    + Headers
+            
+            Accept: application/json;version=2
+
++ Response 200 (application/json;version=2)
+
+        [
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "is_active": true,
                 "choices": [
                     {
                         "choice": "Swift",
