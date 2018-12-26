@@ -12,14 +12,15 @@ Polls is a simple API allowing consumers to view polls and vote in them.
 + Request V1
     + Headers
         
-            Accept: application/json;version=1
+            Accept: application/vnd.weaverb.widgets+json;version=1
         
-+ Response 200 (application/json;version=1)
++ Response 200 (application/vnd.weaverb.widgets+json;version=1)
 
         [
             {
                 "question": "Favourite programming language?",
                 "published_at": "2015-08-05T08:40:51.620Z",
+                "is_active": true,
                 "choices": [
                     {
                         "choice": "Swift",
@@ -41,15 +42,18 @@ Polls is a simple API allowing consumers to view polls and vote in them.
 + Request V2
     + Headers
             
-            Accept: application/json;version=2
+            Accept: application/vnd.weaverb.widgets+json;version=2
 
-+ Response 200 (application/json;version=2)
++ Response 200 (application/vnd.weaverb.widgets+json;version=2)
 
         [
             {
                 "question": "Favourite programming language?",
                 "published_at": "2015-08-05T08:40:51.620Z",
-                "is_active": true,
+                "is_active": { 
+                    enabled: true, 
+                    stale: false
+                    },
                 "choices": [
                     {
                         "choice": "Swift",
